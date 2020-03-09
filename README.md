@@ -41,8 +41,12 @@ pm2 logs
 
 Use this terminal to check your service console informations.
 
-## Roadmap
+## Todo
 
+- Support serve static files
 - Add validator middleware
-- Add build process
-- Support mutiple databasesS
+- Add build process to create encrypted production files
+- Add default nginx config file
+- Support web socket
+- Support redis
+- Support mutiple databases
