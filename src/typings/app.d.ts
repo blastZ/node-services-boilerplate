@@ -2,6 +2,12 @@ import { Middleware } from 'koa';
 import koaBody from 'koa-body';
 
 declare namespace Application {
+  interface ConfigDatastores {
+    default: {
+      url: string;
+    };
+  }
+
   interface ConfigRoutes {
     [method_route: string]: {
       controller: Middleware<State, Custom>;
@@ -10,8 +16,17 @@ declare namespace Application {
     };
   }
 
+  interface ConfigSecurity {
+    cors: {
+      allowOrigins: string[];
+      allowCredentials?: boolean;
+    };
+  }
+
   interface Config {
+    datastores: ConfigDatastores;
     routes: ConfigRoutes;
     custom: ConfigCustom;
+    security: ConfigSecurity;
   }
 }

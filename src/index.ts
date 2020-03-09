@@ -8,6 +8,7 @@ import responses from './middleware/responses';
 
 import defaultConfig from './config';
 import customHandler from './middleware/custom-handler';
+import cors from './middleware/cors';
 
 export = async (inputConfig: any) => {
   const config = {
@@ -18,6 +19,7 @@ export = async (inputConfig: any) => {
   const app = new Koa();
 
   app.use(errorHandler());
+  app.use(cors(config));
   app.use(customHandler(config));
   app.use(responses());
 

@@ -16,5 +16,9 @@ export = {
   'POST /user/login': {
     controller: require(`../api/controllers/user/login`),
     bodyParser: true
+  },
+  'POST /user/logout': {
+    controller: require('../api/controllers/user/logout'),
+    policies
   }
 } as Application.ConfigRoutes;

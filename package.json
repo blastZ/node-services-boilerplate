@@ -1,6 +1,6 @@
 {
   "name": "node-services-boilerplate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "node services boilerplate",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,6 @@
   "author": "blastz",
   "license": "ISC",
   "dependencies": {
-    "@koa/cors": "^3.0.0",
     "@koa/router": "^8.0.8",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.0",
