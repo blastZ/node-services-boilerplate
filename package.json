@@ -7,7 +7,9 @@
     "tsc": "tsc",
     "tsc-watch": "tsc -w",
     "dev": "pm2 startOrRestart ecosystem.dev.config.js",
-    "build": "node ./build/index.js"
+    "build": "node ./build/index.js",
+    "setup-pro": "pm2 deploy production setup",
+    "publish-pro": "pm2 deploy production"
   },
   "keywords": [
     "node",
