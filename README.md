@@ -41,11 +41,38 @@ pm2 logs
 
 Use this terminal to check your service console informations.
 
+## Features
+
+## 1. Hide your production source code
+
+About one year ago, I asked this question [How to protect my node.js source code](https://stackoverflow.com/questions/51944164/how-to-protect-my-node-js-source-code), And I haven't got a wonderful answer.
+
+So in this boilerplate, I give my own solution.
+
+In this project, I haven't use any async import, because I use [ncc](https://github.com/zeit/ncc) to bundle all files into single main file. Then use [bytenode](https://github.com/OsamaAbbas/bytenode) to compile the main file to v8 cached file, use below command to create compiled files:
+
+```bash
+npm run build
+```
+
+Generated files will be placed in `build/dist`, the result file structure will like:
+
+- lib
+- app.js
+- config.js
+- ecosystem.config.js
+- index.robot
+
+Some benifis of this solution:
+
+1. Keep config file
+2. Keep app entry, only compile main code.
+3. It's still normal node project, can be handle by process manager like pm2.
+
 ## Todo
 
 - Support serve static files
 - Add validator middleware
-- Add build process to create encrypted production files
 - Add default nginx config file
 - Support web socket
 - Support redis

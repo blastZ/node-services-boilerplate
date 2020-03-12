@@ -18,10 +18,10 @@ export = async (inputConfig: any) => {
 
   const app = new Koa();
 
+  app.use(responses());
   app.use(errorHandler());
   app.use(cors(config));
   app.use(customHandler(config));
-  app.use(responses());
 
   const router = new Router<State, Custom>();
 

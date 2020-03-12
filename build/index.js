@@ -2,6 +2,7 @@ const ncc = require('@zeit/ncc');
 const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
+const bytenode = require('./lib/bytenode');
 
 const distPath = path.resolve(__dirname, './dist');
 
@@ -34,5 +35,14 @@ ncc(path.resolve(__dirname, '../dist/index.js'), {
   }
 
   shell.cp('-R', path.resolve(__dirname, './template/app.js'), path.resolve(__dirname, './dist'));
-  shell.cp('-R', path.resolve(__dirname, './template/config.js'), path.resolve(__dirname, './dist'));
+  shell.cp('-R', path.resolve(__dirname, '../config.js'), path.resolve(__dirname, './dist'));
+  shell.cp('-R', path.resolve(__dirname, './template/ecosystem.config.js'), path.resolve(__dirname, './dist'));
+
+  bytenode.compileFile({
+    filename: path.resolve(__dirname, './dist/index.js'),
+    output: path.resolve(__dirname, './dist/index.robot')
+  });
+
+  shell.cp('-R', path.resolve(__dirname, './lib/bytenode.js'), path.resolve(__dirname, './dist'));
+  shell.rm('-rf', path.resolve(__dirname, './dist/index.js'));
 });
