@@ -7,6 +7,8 @@ import { Application } from '../../typings/app';
 export = (router: Router<State, Custom>, config: any) => {
   const { routes: routerMap }: { routes: Application.ConfigRoutes } = config;
 
+  router.prefix('/api/v1');
+
   Object.entries(routerMap).map(([key, value]) => {
     const { controller, policies = true, bodyParser = false } = value;
     const [methodStr, route] = key.split(' ');

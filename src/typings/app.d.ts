@@ -1,5 +1,6 @@
 import { Middleware } from 'koa';
 import koaBody from 'koa-body';
+import serve from 'koa-static';
 
 declare namespace Application {
   interface ConfigDatastores {
@@ -28,5 +29,6 @@ declare namespace Application {
     routes: ConfigRoutes;
     custom: ConfigCustom;
     security: ConfigSecurity;
+    serve: serve.Options;
   }
 }

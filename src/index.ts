@@ -1,5 +1,7 @@
 import Koa from 'koa';
 import Router from '@koa/router';
+import serve from 'koa-static';
+import path from 'path';
 
 import { DB } from './utils/db';
 import routes from './middleware/routes';
@@ -21,6 +23,7 @@ export = async (inputConfig: any) => {
   app.use(responses());
   app.use(errorHandler());
   app.use(cors(config));
+  app.use(serve(path.resolve(process.cwd(), './assets'), config.serve));
   app.use(customHandler(config));
 
   const router = new Router<State, Custom>();
