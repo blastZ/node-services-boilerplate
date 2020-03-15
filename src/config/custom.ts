@@ -1,3 +1,5 @@
-export = {
+const config: ConfigCustom = {
   APP_NAME: 'node-services-boilerplate'
-} as ConfigCustom;
+};
+
+export = config;

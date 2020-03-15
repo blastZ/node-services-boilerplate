@@ -7,6 +7,9 @@ declare namespace Application {
     default: {
       url: string;
     };
+    cache: {
+      url: string;
+    };
   }
 
   interface ConfigRoutes {

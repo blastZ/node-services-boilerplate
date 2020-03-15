@@ -75,6 +75,5 @@ Some benifis of this solution:
 - Deep merge config files
 - Add default nginx config file
 - Support web socket
-- Support redis
 - Support mutiple databases
 - Create cli to start custom project

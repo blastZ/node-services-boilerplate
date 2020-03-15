@@ -3,7 +3,7 @@ import { Application } from '../typings/app';
 
 const policies = [isLoggedIn];
 
-export = {
+const config: Application.ConfigRoutes = {
   // user routes
   'GET /user': {
     controller: require(`../api/controllers/user/get`),
@@ -21,4 +21,6 @@ export = {
     controller: require('../api/controllers/user/logout'),
     policies
   }
-} as Application.ConfigRoutes;
+};
+
+export = config;
