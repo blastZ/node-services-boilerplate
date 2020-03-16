@@ -7,16 +7,13 @@ import { DB } from './utils/db';
 import routes from './middleware/routes';
 import errorHandler from './middleware/error-handler';
 import responses from './middleware/responses';
-
 import defaultConfig from './config';
 import customHandler from './middleware/custom-handler';
 import cors from './middleware/cors';
+import { mergeDeep } from './utils/utility';
 
 export = async (inputConfig: any) => {
-  const config = {
-    ...defaultConfig,
-    ...inputConfig
-  };
+  const config = mergeDeep(defaultConfig, inputConfig);
 
   const app = new Koa();
 

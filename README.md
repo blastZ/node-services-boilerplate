@@ -72,7 +72,6 @@ Some benifis of this solution:
 ## Todo
 
 - Add validator middleware
-- Deep merge config files
 - Add default nginx config file
 - Support web socket
 - Support mutiple databases
