@@ -11,7 +11,7 @@ export = (router: Router<State, Custom>, config: any) => {
 
   Object.entries(routerMap).map(([key, value]) => {
     const { controller, policies = true, bodyParser = false } = value;
-    const [methodStr, route] = key.split(' ');
+    const [methodStr, ...route] = key.split(' ');
     const method = methodStr.toLowerCase();
     const testMethod = /^(get|post|delete|put|patch)$/;
 
