@@ -73,7 +73,6 @@ Some benifis of this solution:
 
 - Add request rate limit middleware
 - Add validator middleware
-- Add default nginx config file
 - Add default csrf config
 - Support web socket
 - Support mutiple databases
