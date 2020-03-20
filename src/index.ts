@@ -11,9 +11,10 @@ import defaultConfig from './config';
 import customHandler from './middleware/custom-handler';
 import cors from './middleware/cors';
 import { mergeDeep } from './utils/utility';
+import { Application } from './typings/app';
 
-export = async (inputConfig: any) => {
-  const config = mergeDeep(defaultConfig, inputConfig);
+export = async (inputConfig: Partial<Application.Config>) => {
+  const config: Application.Config = mergeDeep(defaultConfig, inputConfig);
 
   const app = new Koa();
 
@@ -30,7 +31,8 @@ export = async (inputConfig: any) => {
 
   await DB.connect(config.datastores);
 
-  app.listen(1314, () => {
-    console.log('App is on 1314');
+  const port = config.port || 1314;
+  app.listen(port, () => {
+    console.log(`App is on ${port}`);
   });
 };

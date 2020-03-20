@@ -33,5 +33,6 @@ declare namespace Application {
     custom: ConfigCustom;
     security: ConfigSecurity;
     serve: serve.Options;
+    port?: number;
   }
 }
