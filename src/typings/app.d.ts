@@ -7,7 +7,7 @@ declare namespace Application {
     default: {
       url: string;
     };
-    cache: {
+    cache?: {
       url: string;
     };
   }

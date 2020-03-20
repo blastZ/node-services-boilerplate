@@ -1,10 +1,10 @@
 import bcrypto from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { Context } from 'koa';
+import { ParameterizedContext } from 'koa';
 
 import { User } from '../../models/User';
 
-export = async (ctx: Context) => {
+export = async (ctx: ParameterizedContext<State, Custom>) => {
   const { name, password }: { name?: string; password?: string } = ctx.request.body;
 
   if (typeof name !== 'string' || name.trim() === '') {

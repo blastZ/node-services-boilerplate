@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
-import { Context } from 'koa';
+import { ParameterizedContext } from 'koa';
 
 import { User } from '../../models/User';
 
-export = async (ctx: Context) => {
+export = async (ctx: ParameterizedContext<State, Custom>) => {
   const { name, password: originPwd } = ctx.request.body;
 
   if (
