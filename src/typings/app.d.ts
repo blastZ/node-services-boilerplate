@@ -1,6 +1,7 @@
 import { Middleware } from 'koa';
 import koaBody from 'koa-body';
 import serve from 'koa-static';
+import Joi from '@hapi/joi';
 
 declare namespace Application {
   interface ConfigDatastores {
@@ -17,6 +18,11 @@ declare namespace Application {
       controller: Middleware<State, Custom>;
       policies?: Middleware<State, Custom>[] | boolean;
       bodyParser?: boolean | koaBody.IKoaBodyOptions;
+      validate?: {
+        params?: Joi.ObjectSchema;
+        query?: Joi.ObjectSchema;
+        body?: Joi.ObjectSchema;
+      };
     };
   }
 

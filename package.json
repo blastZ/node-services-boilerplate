@@ -20,6 +20,7 @@
   "author": "blastz",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "@koa/router": "^8.0.8",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
+    "@types/hapi__joi": "^16.0.12",
     "@types/ioredis": "^4.14.9",
     "@types/jsonwebtoken": "^8.3.8",
     "@types/koa": "^2.11.2",

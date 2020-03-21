@@ -3,20 +3,13 @@ import { ParameterizedContext } from 'koa';
 
 import { User } from '../../models/User';
 
-export = async (ctx: ParameterizedContext<State, Custom>) => {
-  const { name, password: originPwd } = ctx.request.body;
+type Body = {
+  name: string;
+  password: string;
+};
 
-  if (
-    typeof name !== 'string' ||
-    typeof originPwd !== 'string' ||
-    name.trim() === '' ||
-    originPwd.trim() === '' ||
-    name.length > 24 ||
-    originPwd.length < 8 ||
-    originPwd.length > 16
-  ) {
-    return ctx.bad();
-  }
+export = async (ctx: ParameterizedContext<State, Custom>) => {
+  const { name, password: originPwd } = ctx.state.body as Body;
 
   const password = await bcrypt.hash(originPwd, 10);
 

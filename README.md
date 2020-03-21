@@ -72,8 +72,8 @@ Some benifis of this solution:
 ## Todo
 
 - Add request rate limit middleware
-- Add validator middleware
 - Add default csrf config
+- Add test example
 - Support web socket
 - Support mutiple databases
 - Create cli to start custom project

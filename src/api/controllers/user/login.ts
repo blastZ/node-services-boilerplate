@@ -4,12 +4,13 @@ import { ParameterizedContext } from 'koa';
 
 import { User } from '../../models/User';
 
-export = async (ctx: ParameterizedContext<State, Custom>) => {
-  const { name, password }: { name?: string; password?: string } = ctx.request.body;
+type Body = {
+  name: string;
+  password: string;
+};
 
-  if (typeof name !== 'string' || name.trim() === '') {
-    return ctx.bad();
-  }
+export = async (ctx: ParameterizedContext<State, Custom>) => {
+  const { name, password } = ctx.state.body as Body;
 
   const user = await User.findOne({ name }).exec();
 

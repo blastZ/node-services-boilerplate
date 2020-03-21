@@ -10,13 +10,13 @@ export = (router: Router<State, Custom>, config: any) => {
   router.prefix('/api/v1');
 
   Object.entries(routerMap).map(([key, value]) => {
-    const { controller, policies = true, bodyParser = false } = value;
+    const { controller, policies = true, bodyParser = false, validate = {} } = value;
     const [methodStr, ...route] = key.split(' ');
     const method = methodStr.toLowerCase();
     const testMethod = /^(get|post|delete|put|patch)$/;
 
     if (!testMethod.test(method)) {
-      console.error('E_CONFIG_ROUTES_INVALID_ROUTE: ', key);
+      console.error('E_ROUTES_INVALID_HTTP_METHOD: ', key);
       return;
     }
 
@@ -38,6 +38,23 @@ export = (router: Router<State, Custom>, config: any) => {
         middlewares.push(KoaBody({ ...bodyParser }));
       }
     }
+
+    Object.keys(validate).map(key => {
+      const middleware = async (ctx: ParameterizedContext<State, Custom>, next: Next) => {
+        let value = {};
+        if (key === 'params') {
+          value = await validate[key]?.validateAsync(ctx.params);
+          ctx.state.params = value;
+        } else if (key === 'query' || key === 'body') {
+          value = await validate[key]?.validateAsync(ctx.request[key]);
+          ctx.state[key] = value;
+        }
+
+        await next();
+      };
+
+      middlewares.push(middleware);
+    });
 
     router[method as HttpMethod](route, ...middlewares, controller);
   });
