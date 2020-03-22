@@ -71,7 +71,9 @@ Some benifis of this solution:
 
 ## Todo
 
-- Support web socket
+- Support websocket
+- Support auto api document generate
+- Create new branch add server-side render boilerplate with next.js
 - Add default csrf config
 - Add test example
 - Support mutiple databases
