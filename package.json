@@ -6,7 +6,9 @@
   "scripts": {
     "tsc": "tsc",
     "tsc-watch": "tsc -w",
-    "dev": "pm2 startOrRestart ecosystem.dev.config.js",
+    "dev": "pm2 startOrRestart ecosystem.dev.config.js && pm2 logs node-services-boilerplate --err --raw",
+    "reload": "pm2 reload ecosystem.dev.config.js",
+    "clear": "pm2 stop node-services-boilerplate && pm2 delete node-services-boilerplate",
     "build": "node ./build/index.js",
     "setup-pro": "pm2 deploy production setup",
     "publish-pro": "pm2 deploy production"
@@ -24,25 +26,27 @@
     "@koa/router": "^8.0.8",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
+    "debug": "^4.1.1",
     "ioredis": "^4.16.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
     "koa-static": "^5.0.0",
-    "mongoose": "^5.9.4",
+    "mongoose": "^5.9.6",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
+    "@types/debug": "^4.1.5",
     "@types/hapi__joi": "^16.0.12",
     "@types/ioredis": "^4.14.9",
     "@types/jsonwebtoken": "^8.3.8",
     "@types/koa": "^2.11.2",
     "@types/koa-static": "^4.0.1",
     "@types/koa__router": "^8.0.2",
-    "@types/mongoose": "^5.7.6",
-    "@types/shelljs": "^0.8.6",
-    "@zeit/ncc": "^0.21.1",
+    "@types/mongoose": "^5.7.7",
+    "@types/shelljs": "^0.8.7",
+    "@zeit/ncc": "^0.22.0",
     "typescript": "^3.8.3"
   }
 }

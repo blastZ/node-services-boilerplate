@@ -13,6 +13,8 @@ interface Custom {
   bad(message?: string): void;
   unAuth(message?: string): void;
   params: object;
+  _matchedRoute: string | RegExp | undefined;
+  _matchedRouteName: string | undefined;
 }
 
 type HttpMethod = 'post' | 'get' | 'delete' | 'put' | 'patch';

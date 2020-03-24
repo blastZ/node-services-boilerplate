@@ -10,6 +10,8 @@ module.exports = {
         followSymlinks: false
       },
       env: {
+        DEBUG_COLORS: true,
+        DEBUG: 'nico:*',
         NODE_ENV: 'production',
         APP_ENV: 'development'
       }

@@ -1,10 +1,12 @@
 import Router from '@koa/router';
 import KoaBody from 'koa-body';
 import { ParameterizedContext, Next, Middleware } from 'koa';
+import debug from 'debug';
 
 import { Application } from '../../typings/app';
 
 export = (router: Router<State, Custom>, config: any) => {
+  const log = debug('nico:route');
   const { routes: routerMap }: { routes: Application.ConfigRoutes } = config;
 
   router.prefix('/api/v1');
@@ -54,6 +56,11 @@ export = (router: Router<State, Custom>, config: any) => {
       };
 
       middlewares.push(middleware);
+    });
+
+    middlewares.push(async (ctx: ParameterizedContext<State, Custom>, next: Next) => {
+      log('%o %o', ctx.request.method, ctx._matchedRoute);
+      await next();
     });
 
     router[method as HttpMethod](route, ...middlewares, controller);

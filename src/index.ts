@@ -2,6 +2,7 @@ import Koa from 'koa';
 import Router from '@koa/router';
 import serve from 'koa-static';
 import path from 'path';
+import debug from 'debug';
 
 import { DB } from './utils/db';
 import routes from './middleware/routes';
@@ -14,6 +15,7 @@ import { mergeDeep } from './utils/utility';
 import { Application } from './typings/app';
 
 export = async (inputConfig: Partial<Application.Config>) => {
+  const log = debug('nico:app');
   const config: Application.Config = mergeDeep(defaultConfig, inputConfig);
 
   const app = new Koa();
@@ -33,6 +35,6 @@ export = async (inputConfig: Partial<Application.Config>) => {
 
   const port = config.port || 1314;
   app.listen(port, () => {
-    console.log(`App is on ${port}`);
+    log(`App is on ${port}`);
   });
 };
