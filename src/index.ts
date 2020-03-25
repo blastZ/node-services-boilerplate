@@ -14,8 +14,9 @@ import cors from './middleware/cors';
 import { mergeDeep } from './utils/utility';
 import { Application } from './typings/app';
 
+const log = debug('nico:app');
+
 export = async (inputConfig: Partial<Application.Config>) => {
-  const log = debug('nico:app');
   const config: Application.Config = mergeDeep(defaultConfig, inputConfig);
 
   const app = new Koa();

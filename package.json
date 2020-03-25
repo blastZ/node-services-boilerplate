@@ -6,6 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "tsc-watch": "tsc -w",
+    "start": "pm2 startOrRestart ecosystem.config.js --env production",
     "dev": "pm2 startOrRestart ecosystem.dev.config.js && pm2 logs node-services-boilerplate --err --raw",
     "reload": "pm2 reload ecosystem.dev.config.js",
     "clear": "pm2 stop node-services-boilerplate && pm2 delete node-services-boilerplate",

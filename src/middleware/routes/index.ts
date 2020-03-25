@@ -5,11 +5,13 @@ import debug from 'debug';
 
 import { Application } from '../../typings/app';
 
+const log = debug('nico:route');
+
 export = (router: Router<State, Custom>, config: any) => {
-  const log = debug('nico:route');
+  const prefix = '/api/v1';
   const { routes: routerMap }: { routes: Application.ConfigRoutes } = config;
 
-  router.prefix('/api/v1');
+  router.prefix(prefix);
 
   Object.entries(routerMap).map(([key, value]) => {
     const { controller, policies = true, bodyParser = false, validate = {} } = value;
@@ -59,7 +61,11 @@ export = (router: Router<State, Custom>, config: any) => {
     });
 
     middlewares.push(async (ctx: ParameterizedContext<State, Custom>, next: Next) => {
-      log('%o %o', ctx.request.method, ctx._matchedRoute);
+      log(ctx.request.method + ' ' + String(ctx._matchedRoute).slice(prefix.length));
+      log.extend('params')(ctx.state.params);
+      log.extend('query')(ctx.state.query);
+      log.extend('body')(ctx.state.body);
+
       await next();
     });
 
