@@ -9,7 +9,7 @@ export class DB {
       await mongoose.connect(datastores.default.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        autoIndex: false
+        useCreateIndex: true
       });
     }
 

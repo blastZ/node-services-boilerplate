@@ -27,6 +27,8 @@ const userSchema = new Mongoose.Schema(
   }
 );
 
+userSchema.index({ name: 1 }, { unique: true });
+
 export interface UserDocument extends Mongoose.Document {
   name: string;
   password: string;

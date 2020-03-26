@@ -60,11 +60,18 @@ export = (router: Router<State, Custom>, config: any) => {
       middlewares.push(middleware);
     });
 
-    middlewares.push(async (ctx: ParameterizedContext<State, Custom>, next: Next) => {
+    middlewares.unshift(async (ctx: ParameterizedContext<State, Custom>, next: Next) => {
       log(ctx.request.method + ' ' + String(ctx._matchedRoute).slice(prefix.length));
-      log.extend('params')(ctx.state.params);
-      log.extend('query')(ctx.state.query);
-      log.extend('body')(ctx.state.body);
+
+      await next();
+    });
+
+    middlewares.push(async (ctx: ParameterizedContext<State, Custom>, next: Next) => {
+      const stateKeys = ['params', 'query', 'body'];
+      const state = ctx.state as any;
+      stateKeys.map(key => {
+        state[key] && log.extend(key)(state[key]);
+      });
 
       await next();
     });

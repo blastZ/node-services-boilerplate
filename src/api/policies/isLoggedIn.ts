@@ -2,10 +2,10 @@ import jwt from 'jsonwebtoken';
 import { Context, Next } from 'koa';
 import debug from 'debug';
 
-const log = debug('nico:policy');
+const log = debug('nico:policy:isLoggedIn');
 
 export = async (ctx: Context, next: Next) => {
-  log('isLoggedIn fired');
+  log('fired');
   const token = ctx.cookies.get('token');
 
   try {
