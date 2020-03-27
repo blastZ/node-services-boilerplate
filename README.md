@@ -32,18 +32,51 @@ Open a new terminal to run app
 # install pm2 global, if you haven't
 npm install -g pm2
 
-# start watch mode
+# start development mode
 npm run dev
 
-# console logs
-pm2 logs
+# reload your dev config
+npm run reload
+
+# stop develop and clear process
+npm run clear
 ```
 
 Use this terminal to check your service console informations.
 
 ## Features
 
-## 1. Hide your production source code
+## 1. Easy to build your routes
+
+All configs in one file, for example:
+
+```ts
+{
+  'POST /user': {
+    controller: require(`../api/controllers/user/create`),
+    bodyParser: true,
+    policies: true,
+    validate: {
+      body: Joi.object({
+        name: Joi.string()
+          .trim()
+          .required()
+          .min(4)
+          .max(16),
+        password: Joi.string()
+          .trim()
+          .required()
+          .min(8)
+          .max(16)
+      })
+    }
+  }
+}
+```
+
+see all configs in the type file `typings/app.d.ts`.
+
+## 2. Hide your production source code
 
 About one year ago, I asked this question [How to protect my node.js source code](https://stackoverflow.com/questions/51944164/how-to-protect-my-node-js-source-code), And I haven't got a wonderful answer.
 

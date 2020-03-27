@@ -10,6 +10,7 @@ module.exports = {
       error_file: './log/error.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss',
       env_production: {
+        DEBUG: 'nico:err',
         NODE_ENV: 'production',
         APP_ENV: 'production'
       }

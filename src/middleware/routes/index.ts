@@ -36,7 +36,7 @@ export = (router: Router<State, Custom>, config: any) => {
     }
 
     if (bodyParser) {
-      if (typeof bodyParser === 'boolean') {
+      if (typeof bodyParser === 'boolean' && bodyParser) {
         middlewares.push(KoaBody());
       } else {
         middlewares.push(KoaBody({ ...bodyParser }));
