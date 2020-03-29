@@ -46,7 +46,7 @@ Use this terminal to check your service console informations.
 
 ## Features
 
-## 1. Easy to build your routes
+## 1. Easy to build routes
 
 Set routes in `config/routes.ts` file, the basic usage like:
 
