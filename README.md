@@ -48,7 +48,7 @@ Use this terminal to check your service console informations.
 
 ## 1. Easy to build your routes
 
-All configs in one file, for example:
+Set routes in `config/routes.ts` file, the basic usage like:
 
 ```ts
 {
@@ -74,7 +74,9 @@ All configs in one file, for example:
 }
 ```
 
-see all configs in the type file `typings/app.d.ts`.
+use `controller` to specific action method, `bodyParser` to set up parse middleware, `policies` to set up authorization and access control middlewares, `validate` use Joi to validate `body`, `params` and `query` conveniently.
+
+check more configs in `typings/app.d.ts`.
 
 ## 2. Hide your production source code
 
