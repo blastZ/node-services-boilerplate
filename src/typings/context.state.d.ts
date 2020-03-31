@@ -3,7 +3,7 @@ interface State {
     id: string;
   };
   custom: ConfigCustom;
-  query: object;
-  params: object;
-  body: object;
+  query?: object;
+  params?: object;
+  body?: object;
 }
