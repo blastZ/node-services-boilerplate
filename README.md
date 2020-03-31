@@ -1,4 +1,4 @@
-# Node Services Boilerplate 🛠
+# Node Services Boilerplate 🛠 [![blastZ](https://circleci.com/gh/blastZ/node-services-boilerplate.svg?style=svg)](https://circleci.com/gh/blastZ/node-services-boilerplate)
 
 ## How to start
 
