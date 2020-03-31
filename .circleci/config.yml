@@ -3,7 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.16
-      - image: mongo:latest
+      - image: circleci/mongo:latest
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: admin123
+
     steps:
       - checkout
       - run: npm install
