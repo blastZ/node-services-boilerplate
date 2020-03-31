@@ -14,7 +14,7 @@ export = async (ctx: ParameterizedContext<State, Custom>) => {
 
   const user = await User.findOne({ name }).exec();
   if (user) {
-    return ctx.ok(undefined, 'User already created');
+    return ctx.ok(undefined, 'User already created', false);
   }
 
   const password = await bcrypt.hash(originPwd, 10);
