@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build-and-test:
+  build:
     docker:
       - image: circleci/node:12.16
       - image: mongo:latest
