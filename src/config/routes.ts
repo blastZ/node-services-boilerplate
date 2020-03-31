@@ -1,5 +1,5 @@
 import isLoggedIn from '../api/policies/isLoggedIn';
-import { Application } from '../typings/app';
+import Application from '../typings/app';
 import Joi from '@hapi/joi';
 
 const policies = [isLoggedIn];

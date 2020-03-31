@@ -1,7 +1,7 @@
 import { ParameterizedContext } from 'koa';
 
-export = async (ctx: ParameterizedContext<State, Custom>) => {
-  global.redis.set('userInfo', JSON.stringify(ctx.state.user));
+import Custom from '../../../typings/context.custom';
 
+export = async (ctx: ParameterizedContext<State, Custom>) => {
   return ctx.ok(ctx.state.user);
 };

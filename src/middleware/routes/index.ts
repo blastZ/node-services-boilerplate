@@ -3,7 +3,8 @@ import KoaBody from 'koa-body';
 import { ParameterizedContext, Next, Middleware } from 'koa';
 import debug from 'debug';
 
-import { Application } from '../../typings/app';
+import Application from '../../typings/app';
+import Custom from '../../typings/context.custom';
 
 const log = debug('nico:route');
 

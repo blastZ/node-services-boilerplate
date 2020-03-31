@@ -1,7 +1,14 @@
-import { Middleware } from 'koa';
+import KoaApplication from 'koa';
 import koaBody from 'koa-body';
 import serve from 'koa-static';
 import Joi from '@hapi/joi';
+
+import { DB } from '../utils/db';
+import Custom from './context.custom';
+
+declare class Application extends KoaApplication {
+  db: DB;
+}
 
 declare namespace Application {
   interface ConfigDatastores {
@@ -15,8 +22,8 @@ declare namespace Application {
 
   interface ConfigRoutes {
     [method_route: string]: {
-      controller: Middleware<State, Custom>;
-      policies?: Middleware<State, Custom>[] | boolean;
+      controller: KoaApplication.Middleware<State, Custom>;
+      policies?: KoaApplication.Middleware<State, Custom>[] | boolean;
       bodyParser?: boolean | koaBody.IKoaBodyOptions;
       validate?: {
         params?: Joi.ObjectSchema;
@@ -42,3 +49,5 @@ declare namespace Application {
     port?: number;
   }
 }
+
+export = Application;

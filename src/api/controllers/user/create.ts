@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import { ParameterizedContext } from 'koa';
 
 import { User } from '../../models/User';
+import Custom from '../../../typings/context.custom';
 
 type Body = {
   name: string;
