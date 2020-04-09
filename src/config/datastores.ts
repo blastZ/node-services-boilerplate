@@ -1,6 +1,6 @@
-import Application from '../typings/app';
+import { ConfigDatastores } from '../typings/koa';
 
-const config: Application.ConfigDatastores = {
+const config: ConfigDatastores = {
   default: {
     url: 'mongodb://root:admin123@localhost:27017/test?authSource=admin'
   },

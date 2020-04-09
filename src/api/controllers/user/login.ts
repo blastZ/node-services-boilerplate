@@ -1,16 +1,16 @@
 import bcrypto from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { ParameterizedContext } from 'koa';
 
 import { User } from '../../models/User';
-import Custom from '../../../typings/context.custom';
+import { Context } from '@blastz/nico/typings';
+import { State, Custom } from '../../../typings/koa';
 
 type Body = {
   name: string;
   password: string;
 };
 
-export = async (ctx: ParameterizedContext<State, Custom>) => {
+export = async (ctx: Context<State, Custom>) => {
   const { name, password } = ctx.state.body as Body;
 
   const user = await User.findOne({ name }).exec();

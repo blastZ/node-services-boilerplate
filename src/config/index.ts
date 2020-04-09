@@ -1,16 +1,18 @@
-import datastores from './datastores';
 import routes from './routes';
 import custom from './custom';
 import security from './security';
 import serve from './serve';
-import Application from '../typings/app';
+import datastores from './datastores';
+import responses from './responses';
+import { Config } from '../typings/koa';
 
-const config: Application.Config = {
-  datastores,
+const config: Config = {
   routes,
   custom,
   security,
-  serve
+  serve,
+  datastores,
+  responses
 };
 
 export = config;

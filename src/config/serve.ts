@@ -1,7 +1,7 @@
-import serve from 'koa-static';
+import { ConfigServe } from '@blastz/nico/typings';
 
-const config: serve.Options = {
-  maxAge: 1 * 24 * 3600 * 1000
+const config: ConfigServe = {
+  root: 'assets'
 };
 
 export = config;

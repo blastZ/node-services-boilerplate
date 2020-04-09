@@ -11,8 +11,8 @@ module.exports = {
       },
       env: {
         DEBUG_COLORS: true,
-        DEBUG: 'nico:*',
-        NODE_ENV: 'production',
+        DEBUG: 'nico:*, app:*',
+        NODE_ENV: 'development',
         APP_ENV: 'development'
       }
     }

@@ -1,6 +1,6 @@
 # Node Services Boilerplate [![blastZ](https://circleci.com/gh/blastZ/node-services-boilerplate.svg?style=svg)](https://circleci.com/gh/blastZ/node-services-boilerplate)
 
-🛠 Use node-services-boilerplate to build node services more efficient.
+🛠 The best pratice of build node services with [nico](https://github.com/blastZ/nico).
 
 ## How to start
 
