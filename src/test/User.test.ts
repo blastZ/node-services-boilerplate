@@ -1,7 +1,7 @@
 import request from 'supertest';
 import mongoose from 'mongoose';
 import nico from '@blastz/nico';
-import Mongo from '@blastz/nico/lib/utils/mongo';
+import Mongo from '@blastz/nico-utility/mongo';
 
 import config from '../config';
 

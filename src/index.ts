@@ -7,7 +7,7 @@ import { Custom, State } from './typings/koa';
 
 export = async (inputConfig: Config<State, Custom>) => {
   const config: Config<State, Custom> = deepmerge(defaultConfig, inputConfig);
-  const app = await nico.init(config);
+  const app = nico.init(config);
 
   return app;
 };

@@ -1,5 +1,5 @@
 const log = require('debug')('app:init');
-const Mongo = require('@blastz/nico/lib/utils/mongo');
+const Mongo = require('@blastz/nico-utility/mongo');
 const mongoose = require('mongoose');
 
 const init = require('./dist');
@@ -7,10 +7,7 @@ const config = require('./config');
 const datastores = require('./dist/config/datastores');
 
 (async () => {
-  const app = await init({
-    ...config,
-    routerPrefix: '/api/v1'
-  });
+  const app = await init(config);
   const port = config.port || 1314;
 
   await Mongo.connect(mongoose, datastores.default.url);

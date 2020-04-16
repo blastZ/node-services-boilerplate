@@ -1,18 +1,20 @@
 import { ConfigRoutes } from '@blastz/nico/typings';
-import Joi from '@blastz/nico/lib/utils/joi';
+import Joi from '@blastz/nico-utility/joi';
 
 import isLoggedIn from '../api/policies/isLoggedIn';
 import { State, Custom } from '../typings/koa';
 
 const policies = [isLoggedIn];
 
+const prefix = (method: string, route: string) => method + ' ' + route;
+
 const config: ConfigRoutes<State, Custom> = {
   // user routes
-  'GET /user': {
+  [prefix('GET', '/user')]: {
     controller: require(`../api/controllers/user/get`),
     policies
   },
-  'POST /user': {
+  [prefix('POST', '/user')]: {
     controller: require(`../api/controllers/user/create`),
     bodyParser: true,
     validate: {
@@ -22,7 +24,7 @@ const config: ConfigRoutes<State, Custom> = {
       })
     }
   },
-  'POST /user/login': {
+  [prefix('POST', '/user/login')]: {
     controller: require(`../api/controllers/user/login`),
     bodyParser: true,
     validate: {
@@ -32,7 +34,7 @@ const config: ConfigRoutes<State, Custom> = {
       })
     }
   },
-  'POST /user/logout': {
+  [prefix('POST', '/user/logout')]: {
     controller: require('../api/controllers/user/logout'),
     policies
   }
