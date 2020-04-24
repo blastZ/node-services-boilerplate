@@ -1,12 +1,16 @@
 import nico from '@blastz/nico';
+import Mongo from '@blastz/nico-utility/mongo';
+import mongoose from 'mongoose';
 import { deepmerge } from '@blastz/nico/lib/utils/utility';
-import { Config } from '@blastz/nico/typings';
 
 import defaultConfig from './config';
-import { Custom, State } from './typings/koa';
+import { Config } from './typings/koa';
 
-export = async (inputConfig: Config<State, Custom>) => {
-  const config: Config<State, Custom> = deepmerge(defaultConfig, inputConfig);
+export = async (inputConfig: Config) => {
+  const config: Config = deepmerge(defaultConfig, inputConfig);
+
+  await Mongo.connect(mongoose, config.datastores.default.url);
+
   const app = nico.init(config);
 
   return app;

@@ -1,6 +1,6 @@
 {
   "name": "node-services-boilerplate",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "node services boilerplate",
   "main": "index.js",
   "scripts": {
@@ -25,14 +25,14 @@
   "author": "blastz",
   "license": "ISC",
   "dependencies": {
-    "@blastz/nico": "^0.7.1",
+    "@blastz/nico": "^0.7.3",
     "@blastz/nico-utility": "^0.1.1",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "debug": "^4.1.1",
-    "ioredis": "^4.16.2",
+    "ioredis": "^4.16.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.9",
+    "mongoose": "^5.9.10",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
@@ -41,11 +41,11 @@
     "@types/ioredis": "^4.14.9",
     "@types/jest": "^25.2.1",
     "@types/jsonwebtoken": "^8.3.9",
-    "@types/mongoose": "^5.7.11",
+    "@types/mongoose": "^5.7.12",
     "@types/shelljs": "^0.8.7",
     "@types/supertest": "^2.0.8",
     "@zeit/ncc": "^0.22.1",
-    "jest": "^25.3.0",
+    "jest": "^25.4.0",
     "minimist": "^1.2.5",
     "supertest": "^4.0.2",
     "typescript": "^3.8.3"
