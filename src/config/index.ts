@@ -4,7 +4,7 @@ import security from './security';
 import serve from './serve';
 import datastores from './datastores';
 import responses from './responses';
-import { Config } from '../typings/koa';
+import { Config } from '../typings/app';
 
 const config: Config = {
   routes,

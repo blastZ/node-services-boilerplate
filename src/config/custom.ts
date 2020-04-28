@@ -1,7 +1,7 @@
 import { ConfigCustom } from '@blastz/nico/typings';
 
 const config: ConfigCustom = {
-  APP_NAME: 'node-services-boilerplate'
+  JWT_SECRET: 'jwt_secret'
 };
 
 export = config;

@@ -1,15 +1,14 @@
 import bcrypt from 'bcrypt';
-import { Context } from '@blastz/nico/typings';
 
 import { User } from '../../models/User';
-import { State, Custom } from '../../../typings/koa';
+import { Context } from '../../../typings/app';
 
 type Body = {
   name: string;
   password: string;
 };
 
-export = async (ctx: Context<State, Custom>) => {
+export = async function userCreate(ctx: Context) {
   const { name, password: originPwd } = ctx.state.body as Body;
 
   const user = await User.findOne({ name }).exec();

@@ -1,7 +1,5 @@
-import { Context } from '@blastz/nico/typings';
+import { Context } from '../../../typings/app';
 
-import { State, Custom } from '../../../typings/koa';
-
-export = async (ctx: Context<State, Custom>) => {
+export = async function userGet(ctx: Context) {
   return ctx.ok(ctx.state.user);
 };

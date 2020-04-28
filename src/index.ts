@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import { deepmerge } from '@blastz/nico/lib/utils/utility';
 
 import defaultConfig from './config';
-import { Config } from './typings/koa';
+import { Config } from './typings/app';
 
 export = async (inputConfig: Config) => {
   const config: Config = deepmerge(defaultConfig, inputConfig);

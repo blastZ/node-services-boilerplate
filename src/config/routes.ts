@@ -2,7 +2,7 @@ import { ConfigRoutes } from '@blastz/nico/typings';
 import Joi from '@blastz/nico-utility/joi';
 
 import isLoggedIn from '../api/policies/isLoggedIn';
-import { State, Custom } from '../typings/koa';
+import { State, Custom } from '../typings/app';
 
 const policies = [isLoggedIn];
 

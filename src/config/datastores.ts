@@ -1,4 +1,4 @@
-import { ConfigDatastores } from '../typings/koa';
+import { ConfigDatastores } from '../typings/app';
 
 const config: ConfigDatastores = {
   default: {

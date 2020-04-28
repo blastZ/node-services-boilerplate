@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken';
-import { Context, Next } from 'koa';
+import { Context, Next } from '../../typings/app';
 
 export = async (ctx: Context, next: Next) => {
   const token = ctx.cookies.get('token');
 
   try {
-    const decoded = <{ id: string }>jwt.verify(String(token), 'jwt-secret');
+    const decoded = jwt.verify(String(token), ctx.custom.JWT_SECRET) as { id: string };
 
     ctx.state.user = {
       id: decoded.id
