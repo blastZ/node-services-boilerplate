@@ -27,7 +27,7 @@
   "dependencies": {
     "@blastz/nico": "^0.7.6",
     "@blastz/nico-utility": "^0.1.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcrypt": "^4.0.1",
     "debug": "^4.1.1",
     "ioredis": "^4.16.3",
