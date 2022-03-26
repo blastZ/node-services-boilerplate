@@ -46,7 +46,7 @@
     "@types/supertest": "^2.0.9",
     "@zeit/ncc": "^0.22.1",
     "jest": "^26.0.1",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "supertest": "^4.0.2",
     "typescript": "^3.8.3"
   },
